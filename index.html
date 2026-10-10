@@ -2,1369 +2,589 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Quran Learning</title>
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Penalty Kings 27 | eFootball Pro Evolution</title>
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{
-font-family:Arial,Helvetica,sans-serif;
-background:linear-gradient(135deg,#eef8f1,#fffdf1);
-color:#063c36;min-height:100vh
-}
-button{font-family:inherit;cursor:pointer}
-.hidden{display:none!important}
-
-.page{max-width:1000px;margin:auto;padding:30px 20px 50px}
-
-.hero{
-background:linear-gradient(rgba(38,103,87,.90),rgba(60,126,107,.90)),
-radial-gradient(circle at 20% 20%,#d9eee5,transparent 30%);
-border-radius:30px;min-height:430px;display:flex;
-align-items:center;justify-content:center;text-align:center;
-color:white;padding:40px 20px;
-box-shadow:0 18px 40px rgba(25,80,65,.15)
-}
-.hero-icon{font-size:52px;margin-bottom:15px}
-.arabic-title{font-family:serif;font-size:42px;margin-bottom:12px}
-.hero h1{font-family:Georgia,serif;font-size:48px;margin-bottom:12px}
-.hero p{font-size:22px;letter-spacing:1px;margin-bottom:30px}
-
-.continue-btn{
-border:0;background:#f6c445;color:#063c36;padding:19px 38px;
-border-radius:40px;font-size:19px;font-weight:bold;
-box-shadow:0 8px 18px rgba(0,0,0,.12)
-}
-
-.cards{
-display:grid;grid-template-columns:repeat(4,1fr);
-gap:18px;margin-top:30px
-}
-.card{
-background:rgba(255,255,255,.96);border-radius:22px;
-min-height:185px;padding:28px 15px;text-align:center;
-box-shadow:0 8px 22px rgba(40,80,60,.12);
-transition:.2s
-}
-.card:hover{transform:translateY(-5px)}
-.card-icon{font-size:43px;margin-bottom:15px}
-.card h3{font-size:21px;margin-bottom:14px}
-.card p{color:#6d6d6d;font-size:16px}
-
-.screen{
-min-height:100vh;padding:80px 20px 50px;
-position:relative
-}
-
-.quran-bg{
-background:
-linear-gradient(rgba(238,248,241,.91),rgba(255,253,241,.94)),
-radial-gradient(circle at 10% 20%,rgba(65,130,105,.15),transparent 25%),
-radial-gradient(circle at 90% 75%,rgba(202,166,59,.13),transparent 25%)
-}
-
-.home-btn{
-position:fixed;top:15px;left:15px;z-index:1000;
-border:0;background:#f6c445;color:#063c36;
-padding:12px 20px;border-radius:25px;font-weight:bold;
-box-shadow:0 5px 15px rgba(0,0,0,.15)
-}
-
-.section-wrap{max-width:1000px;margin:auto}
-.section-title{text-align:center;font-family:Georgia,serif;font-size:38px;margin-bottom:10px}
-.section-subtitle{text-align:center;color:#666;margin-bottom:30px}
-
-.list{
-display:grid;grid-template-columns:repeat(3,1fr);gap:18px
-}
-.list-card{
-background:rgba(255,255,255,.95);border-radius:20px;
-padding:22px;box-shadow:0 7px 20px rgba(30,80,60,.12);
-cursor:pointer;transition:.2s
-}
-.list-card:hover{transform:translateY(-3px)}
-.list-card strong{font-size:20px}
-.list-card small{display:block;color:#777;margin-top:7px}
-
-.reader{max-width:900px;margin:auto}
-.reader-head{
-background:linear-gradient(rgba(34,91,75,.94),rgba(72,130,109,.94));
-color:white;padding:30px;border-radius:25px;text-align:center;
-margin-bottom:20px
-}
-.reader-head h2{font-family:Georgia,serif;font-size:34px}
-
-.ayah{
-background:rgba(255,255,255,.96);border-radius:20px;
-padding:25px;margin-bottom:15px;
-box-shadow:0 5px 17px rgba(30,80,60,.1)
-}
-.ayah-number{color:#4e8774;font-weight:bold;margin-bottom:12px}
-.arabic{
-direction:rtl;text-align:right;
-font-family:"Amiri","Times New Roman",serif;
-font-size:30px;line-height:2;margin-bottom:15px
-}
-.ayah-actions{display:flex;gap:10px;flex-wrap:wrap}
-.action-btn{
-border:0;padding:10px 17px;border-radius:20px;
-background:#e5f2eb;color:#125747;font-weight:bold
-}
-.action-btn.done{background:#ccebd6}
-
-.audio-main{
-width:100%;margin-top:15px
-}
-
-.practice-box{
-max-width:700px;margin:auto;background:white;border-radius:28px;
-padding:35px;text-align:center;
-box-shadow:0 10px 30px rgba(30,80,60,.13)
-}
-.mic{font-size:70px;margin:20px}
-.record-btn{
-border:0;width:90px;height:90px;border-radius:50%;
-background:#f6c445;font-size:35px;margin:20px
-}
-.practice-status{margin:15px 0;color:#666}
-
-.progress-box{
-max-width:750px;margin:auto;background:white;padding:30px;
-border-radius:25px;box-shadow:0 8px 25px rgba(30,80,60,.12)
-}
-.progress-bar{
-height:25px;background:#e3eee7;border-radius:20px;
-overflow:hidden;margin:20px 0
-}
-.progress-fill{
-height:100%;width:0%;background:#4d8b76;transition:.4s
-}
-.stats{
-display:grid;grid-template-columns:repeat(3,1fr);
-gap:15px;margin-top:25px
-}
-.stat{
-background:#f5faf6;padding:20px;border-radius:18px;text-align:center
-}
-.stat b{display:block;font-size:28px;color:#246b58}
-
-.certificate-box{
-max-width:850px;margin:auto;background:#fffdf0;
-border:8px double #caa63b;border-radius:20px;padding:40px;
-text-align:center;box-shadow:0 12px 35px rgba(50,80,50,.15)
-}
-.certificate-box h2{
-font-family:Georgia,serif;font-size:35px;color:#286b58;margin-bottom:15px
-}
-.certificate-item{
-background:white;padding:18px;border-radius:15px;margin:10px 0;
-display:flex;justify-content:space-between;align-items:center
-}
-.locked{opacity:.55}
-
-.setting{
-max-width:700px;margin:0 auto 14px;background:white;
-padding:22px;border-radius:18px;
-box-shadow:0 5px 15px rgba(30,80,60,.09)
-}
-.setting label{font-weight:bold;display:block;margin-bottom:10px}
-.setting select{
-padding:10px;border:1px solid #ddd;border-radius:10px
-}
-
-.toast{
-position:fixed;bottom:25px;left:50%;
-transform:translateX(-50%);background:#164f40;color:white;
-padding:13px 22px;border-radius:25px;display:none;z-index:2000
-}
-
-@media(max-width:800px){
-.cards{grid-template-columns:repeat(2,1fr)}
-.list{grid-template-columns:repeat(2,1fr)}
-.hero h1{font-size:38px}
-}
-@media(max-width:520px){
-.page{padding:15px 10px 30px}
-.hero{min-height:400px;border-radius:25px}
-.hero h1{font-size:32px}
-.arabic-title{font-size:32px}
-.hero p{font-size:17px}
-.cards{grid-template-columns:1fr 1fr;gap:12px}
-.card{min-height:165px;padding:20px 10px}
-.card h3{font-size:18px}
-.card p{font-size:14px}
-.list{grid-template-columns:1fr}
-.stats{grid-template-columns:1fr}
-.arabic{font-size:25px}
-}
+*{box-sizing:border-box}
+body{margin:0;background:#03080f;color:#eaf2f8;font-family:'Segoe UI',Roboto,Helvetica,sans-serif;overflow-x:hidden}
+header{text-align:center;padding:14px;background:linear-gradient(135deg,#051628,#020b14);border-bottom:2px solid #00f0ff;box-shadow:0 0 25px rgba(0,240,255,0.25)}
+h1{color:#00f0ff;margin:0;font-size:clamp(22px,4vw,36px);letter-spacing:4px;text-shadow:0 0 15px rgba(0,240,255,0.6)}
+header p{color:#8ab4f8;font-size:10px;letter-spacing:4px;margin-top:4px;text-transform:uppercase}
+main{max-width:1150px;margin:auto;padding:12px}
+.panel{background:linear-gradient(145deg,rgba(10,25,45,0.95),rgba(5,14,26,0.95));border:1px solid rgba(0,240,255,0.2);border-radius:14px;padding:14px;margin-bottom:12px;box-shadow:0 8px 30px rgba(0,0,0,0.6);backdrop-filter:blur(6px)}
+.teams{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+label{display:block;color:#8ab4f8;font-size:10px;font-weight:bold;letter-spacing:1.5px;margin-bottom:5px;text-transform:uppercase}
+select{width:100%;padding:11px;background:#0b1d30;color:white;border:1px solid #1f4870;border-radius:8px;font-size:13px;outline:none;cursor:pointer;transition:all 0.2s}
+select:focus{border-color:#00f0ff;box-shadow:0 0 10px rgba(0,240,255,0.3)}
+.scoreboard{display:grid;grid-template-columns:1fr auto 1fr;text-align:center;align-items:center;gap:10px}
+.teamname{font-weight:bold;font-size:13px;color:#c2e7ff;letter-spacing:1px;overflow-wrap:anywhere}
+.score{font-size:42px;color:#ffe600;font-weight:900;text-shadow:0 0 15px rgba(255,230,0,0.4)}
+.vs{font-size:12px;color:#5f85db;font-weight:bold}
+#phase{text-align:center;color:#00f0ff;font-weight:bold;font-size:11px;margin-top:8px;letter-spacing:2px;text-transform:uppercase}
+#gamebox{position:relative;background:#02060a;border-radius:12px;overflow:hidden;border:2px solid #153a5c;box-shadow:inset 0 0 40px rgba(0,0,0,0.9)}
+#game{width:100%;height:clamp(300px,58vw,560px);display:block;touch-action:manipulation}
+#loading{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#030b14;color:#00f0ff;text-align:center;padding:20px;pointer-events:none;font-weight:bold;gap:12px}
+.spinner{width:38px;height:38px;border:3px solid rgba(0,240,255,0.15);border-top-color:#00f0ff;border-radius:50%;animation:spin 0.7s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.hint{text-align:center;font-size:11px;color:#8ab4f8;padding-top:8px;letter-spacing:0.5px}
+.player{display:flex;align-items:center;gap:12px}
+.shirt{font-size:28px;background:#0d2640;padding:10px;border-radius:10px;border:1px solid #1f4870}
+.playername{font-size:16px;font-weight:bold;color:white}
+.small{font-size:11px;color:#8ab4f8;margin-top:2px}
+.power{display:flex;align-items:center;gap:12px;margin:14px 0}
+.power label{margin:0}
+.power input{flex:1;accent-color:#00f0ff;height:5px;cursor:pointer}
+button{border:0;border-radius:8px;padding:13px;font-weight:bold;cursor:pointer;transition:all 0.2s ease;letter-spacing:1px;text-transform:uppercase;font-size:12px}
+button:hover{transform:translateY(-1px);filter:brightness(1.15);box-shadow:0 0 15px rgba(0,240,255,0.4)}
+button:active{transform:translateY(1px)}
+button:disabled{opacity:.4;transform:none;filter:none;cursor:not-allowed;box-shadow:none}
+.primary{background:linear-gradient(135deg,#00f0ff,#0099ff);color:#030b14;box-shadow:0 4px 15px rgba(0,240,255,0.3)}
+.secondary{background:#112a42;color:#c2e7ff;border:1px solid #1f4870}
+.actions{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+#message{text-align:center;min-height:40px;padding-top:12px;font-weight:bold;font-size:14px;color:#ffe600;text-shadow:0 0 12px rgba(255,230,0,0.3)}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;text-align:center}
+.stat{background:#0b1d30;border-radius:8px;padding:12px 6px;border:1px solid #183a59}
+.stat strong{display:block;color:#00f0ff;font-size:22px}
+.stat small{font-size:9px;color:#8ab4f8;letter-spacing:1px}
+#players{display:flex;flex-wrap:wrap;gap:6px}
+.chip{border:1px solid #1f4870;background:#0b1d30;border-radius:16px;padding:6px 10px;font-size:10px;color:#a8c7fa}
+.chip.done{opacity:.35;text-decoration:line-through}
+.chip.active{background:#00f0ff;color:#030b14;border-color:#00f0ff;font-weight:bold;box-shadow:0 0 12px rgba(0,240,255,0.5)}
+.rules{font-size:11px;line-height:1.6;color:#8ab4f8;margin-top:8px}
+footer{text-align:center;color:#4a6d96;font-size:10px;padding:20px;letter-spacing:2px}
+@media(max-width:480px){main{padding:4px}.panel{padding:10px}.score{font-size:36px}.actions{grid-template-columns:1fr}}
 </style>
 </head>
-
 <body>
+<header>
+  <h1>⚽ eFOOTBALL 27</h1>
+  <p>PRO MATCHDAY · PENALTY SHOOTOUT</p>
+</header>
 
-<!-- ================= HOME ================= -->
-
-<div id="home" class="page">
-
-<section class="hero">
-<div>
-<div class="hero-icon">📖</div>
-<div class="arabic-title">القرآن الكريم</div>
-<h1>Quran Learning</h1>
-<p>Learn • Recite • Improve</p>
-
-<button class="continue-btn" onclick="openScreen('surahs')">
-📖 Continue Learning →
-</button>
-</div>
+<main>
+<section class="panel">
+  <div class="teams">
+    <div>
+      <label for="myTeam">YOUR CLUB / NATION</label>
+      <select id="myTeam">
+        <option>FC Barcelona</option><option>Real Madrid</option>
+        <option>Manchester City</option><option>Liverpool</option>
+        <option>Paris Saint-Germain</option><option>Argentina</option>
+        <option>Brazil</option><option>France</option><option>Portugal</option><option>India</option>
+      </select>
+    </div>
+    <div>
+      <label for="opTeam">OPPONENT</label>
+      <select id="opTeam">
+        <option>Real Madrid</option><option>FC Barcelona</option>
+        <option>Manchester City</option><option>Liverpool</option>
+        <option>Paris Saint-Germain</option><option>Argentina</option>
+        <option>Brazil</option><option>France</option><option>Portugal</option><option>India</option>
+      </select>
+    </div>
+  </div>
 </section>
 
-<div class="cards">
-
-<div class="card" onclick="openScreen('surahs')">
-<div class="card-icon">📖</div>
-<h3>Surahs</h3>
-<p>114 Surahs</p>
-</div>
-
-<div class="card" onclick="openScreen('juz')">
-<div class="card-icon">🕌</div>
-<h3>Juz</h3>
-<p>30 Juz</p>
-</div>
-
-<div class="card" onclick="openScreen('recitation')">
-<div class="card-icon">🎧</div>
-<h3>Recitation</h3>
-<p>Listen & Learn</p>
-</div>
-
-<div class="card" onclick="openScreen('practice')">
-<div class="card-icon">🎤</div>
-<h3>Practice</h3>
-<p>Speak & Improve</p>
-</div>
-
-<div class="card" onclick="openScreen('progress')">
-<div class="card-icon">📊</div>
-<h3>Progress</h3>
-<p>Track Your Journey</p>
-</div>
-
-<div class="card" onclick="openScreen('certificates')">
-<div class="card-icon">🏆</div>
-<h3>Certificates</h3>
-<p>Achieve & Share</p>
-</div>
-
-<div class="card" onclick="openScreen('streak')">
-<div class="card-icon">🔥</div>
-<h3>Daily Streak</h3>
-<p>Keep Going!</p>
-</div>
-
-<div class="card" onclick="openScreen('settings')">
-<div class="card-icon">⚙️</div>
-<h3>Settings</h3>
-<p>App Preferences</p>
-</div>
-
-</div>
-</div>
-
-
-<!-- ================= SURAHS ================= -->
-
-<div id="surahs" class="screen quran-bg hidden">
-
-<button class="home-btn" onclick="goHome()">⌂ Home</button>
-
-<div class="section-wrap">
-
-<h1 class="section-title">📖 Surahs</h1>
-<p class="section-subtitle">Explore all 114 Surahs of the Quran</p>
-
-<div id="surahList" class="list">
-<p style="grid-column:1/-1;text-align:center">Loading...</p>
-</div>
-
-</div>
-</div>
-
-
-<!-- ================= JUZ ================= -->
-
-<div id="juz" class="screen quran-bg hidden">
-
-<button class="home-btn" onclick="goHome()">⌂ Home</button>
-
-<div class="section-wrap">
-
-<h1 class="section-title">🕌 Juz</h1>
-<p class="section-subtitle">Explore all 30 Juz</p>
-
-<div id="juzList" class="list"></div>
-
-</div>
-</div>
-
-
-<!-- ================= READER ================= -->
-
-<div id="reader" class="screen quran-bg hidden">
-
-<button class="home-btn" onclick="goHome()">⌂ Home</button>
-
-<div class="reader">
-
-<div class="reader-head">
-<h2 id="readerTitle">Quran Reader</h2>
-<p id="readerSub"></p>
-</div>
-
-<div id="ayahContainer"></div>
-
-</div>
-</div>
-
-
-<!-- ================= RECITATION ================= -->
-
-<div id="recitation" class="screen quran-bg hidden">
-
-<button class="home-btn" onclick="goHome()">⌂ Home</button>
-
-<div class="section-wrap">
-
-<h1 class="section-title">🎧 Recitation</h1>
-<p class="section-subtitle">Listen and learn Quran recitation</p>
-
-<div class="practice-box">
-
-<div class="mic">🎧</div>
-
-<h2>Quran Recitation</h2>
-
-<p class="practice-status">
-Choose a Surah to listen to its complete recitation.
-</p>
-
-<button class="continue-btn" onclick="openScreen('surahs')">
-📖 Choose Surah
-</button>
-
-</div>
-</div>
-</div>
-
-
-<!-- ================= PRACTICE ================= -->
-
-<div id="practice" class="screen quran-bg hidden">
-
-<button class="home-btn" onclick="goHome()">⌂ Home</button>
-
-<div class="section-wrap">
-
-<h1 class="section-title">🎤 Practice</h1>
-<p class="section-subtitle">Speak • Practice • Improve</p>
-
-<div class="practice-box">
-
-<div class="mic">🎤</div>
-
-<h2>Voice Practice</h2>
-
-<p id="practiceStatus" class="practice-status">
-Press the button and start your recitation.
-</p>
-
-<button id="recordBtn" class="record-btn" onclick="toggleRecording()">
-🎤
-</button>
-
-<br>
-
-<button class="action-btn" onclick="startSpeechRecognition()">
-🗣️ Check Speech
-</button>
-
-<p id="speechResult" style="margin-top:20px;color:#555"></p>
-
-<audio id="recordedAudio" controls class="hidden"></audio>
-
-</div>
-</div>
-</div>
-
-
-<!-- ================= PROGRESS ================= -->
-
-<div id="progress" class="screen quran-bg hidden">
-
-<button class="home-btn" onclick="goHome()">⌂ Home</button>
-
-<div class="section-wrap">
-
-<h1 class="section-title">📊 Progress</h1>
-<p class="section-subtitle">Track your Quran learning journey</p>
-
-<div class="progress-box">
-
-<h2 id="progressText">0 / 6236 Ayahs</h2>
-
-<div class="progress-bar">
-<div id="progressFill" class="progress-fill"></div>
-</div>
-
-<p id="progressPercent">0% completed</p>
-
-<div class="stats">
-
-<div class="stat">
-<b id="completedAyahs">0</b>
-Ayahs Practiced
-</div>
-
-<div class="stat">
-<b id="streakNumber">0</b>
-Day Streak
-</div>
-
-<div class="stat">
-<b id="certificateCount">0</b>
-Certificates
-</div>
-
-</div>
-
-</div>
-</div>
-</div>
-
-
-<!-- ================= CERTIFICATES ================= -->
-
-<div id="certificates" class="screen quran-bg hidden">
-
-<button class="home-btn" onclick="goHome()">⌂ Home</button>
-
-<div class="section-wrap">
-
-<h1 class="section-title">🏆 Certificates</h1>
-<p class="section-subtitle">
-Complete every Ayah of a Surah or Juz to unlock achievements
-</p>
-
-<div class="certificate-box">
-
-<div style="font-size:65px">🏆</div>
-
-<h2>Quran Learning Achievements</h2>
-
-<p>Completed Surahs and Juz will appear here automatically.</p>
-
-<br>
-
-<div id="certificateList"></div>
-
-</div>
-</div>
-</div>
-
-
-<!-- ================= STREAK ================= -->
-
-<div id="streak" class="screen quran-bg hidden">
-
-<button class="home-btn" onclick="goHome()">⌂ Home</button>
-
-<div class="section-wrap">
-
-<h1 class="section-title">🔥 Daily Streak</h1>
-<p class="section-subtitle">Keep your Quran learning journey going!</p>
-
-<div class="practice-box">
-
-<div style="font-size:80px">🔥</div>
-
-<h2 id="streakBig">0 Days</h2>
-
-<p style="margin:20px;color:#666">
-Practice Quran every day to build your streak.
-</p>
-
-<button class="continue-btn" onclick="openScreen('practice')">
-🎤 Practice Today
-</button>
-
-</div>
-</div>
-</div>
-
-
-<!-- ================= SETTINGS ================= -->
-
-<div id="settings" class="screen quran-bg hidden">
-
-<button class="home-btn" onclick="goHome()">⌂ Home</button>
-
-<div class="section-wrap">
-
-<h1 class="section-title">⚙️ Settings</h1>
-<p class="section-subtitle">App Preferences</p>
-
-<div class="setting">
-
-<label>📖 Arabic Font Size</label>
-
-<select id="fontSize" onchange="changeFontSize()">
-<option value="25px">Small</option>
-<option value="30px" selected>Medium</option>
-<option value="36px">Large</option>
-<option value="42px">Extra Large</option>
-</select>
-
-</div>
-
-<div class="setting">
-
-<label>🎧 Reciter</label>
-
-<select>
-<option>Alafasy</option>
-</select>
-
-</div>
-
-<div class="setting">
-
-<label>🔥 Daily Streak</label>
-
-<p style="color:#666">
-Your streak is saved automatically on this device.
-</p>
-
-</div>
-
-<div class="setting">
-
-<label>💾 Learning Data</label>
-
-<button class="action-btn" onclick="resetProgress()">
-Reset Progress
-</button>
-
-</div>
-
-</div>
-</div>
-
-
-<div id="toast" class="toast"></div>
-
-
-<script>
-
-/* =====================================================
-   APP DATA
-===================================================== */
-
-const TOTAL_AYAHS = 6236;
-
-let practiced = JSON.parse(
-localStorage.getItem("quranPracticed") || "[]"
-);
-
-let streak = Number(
-localStorage.getItem("quranStreak") || 0
-);
-
-let lastPracticeDate =
-localStorage.getItem("lastPracticeDate") || "";
-
-let certificates = JSON.parse(
-localStorage.getItem("quranCertificates") || "[]"
-);
-
-
-/* =====================================================
-   NAVIGATION
-===================================================== */
-
-function openScreen(id){
-
-document.querySelectorAll(".page,.screen").forEach(x=>{
-x.classList.add("hidden");
-});
-
-document.getElementById(id).classList.remove("hidden");
-
-window.scrollTo(0,0);
-
-if(id==="surahs") loadSurahs();
-if(id==="juz") loadJuz();
-if(id==="progress") updateProgress();
-if(id==="certificates") updateCertificates();
-if(id==="streak") updateStreakScreen();
-
-}
-
-function goHome(){
-openScreen("home");
-}
-
-
-/* =====================================================
-   LOAD SURAHS
-===================================================== */
-
-async function loadSurahs(){
-
-const box=document.getElementById("surahList");
-
-if(box.dataset.loaded==="yes") return;
-
-box.innerHTML=
-"<p style='grid-column:1/-1;text-align:center'>Loading 114 Surahs...</p>";
-
-try{
-
-const res=await fetch(
-"https://api.alquran.cloud/v1/quran/quran-uthmani"
-);
-
-const data=await res.json();
-
-box.innerHTML="";
-
-data.data.surahs.forEach(surah=>{
-
-const card=document.createElement("div");
-
-card.className="list-card";
-
-card.innerHTML=`
-<strong>${surah.number}. ${surah.englishName}</strong>
-<small>${surah.name}</small>
-<small>${surah.numberOfAyahs} Ayahs</small>
-`;
-
-card.onclick=()=>openSurah(
-surah.number,
-surah.englishName,
-surah.name,
-surah.numberOfAyahs
-);
-
-box.appendChild(card);
-
-});
-
-box.dataset.loaded="yes";
-
-}catch(e){
-
-box.innerHTML=
-"<p style='grid-column:1/-1;text-align:center'>Internet connection required to load Quran.</p>";
-
-}
-
-}
-
-
-/* =====================================================
-   LOAD JUZ
-===================================================== */
-
-function loadJuz(){
-
-const box=document.getElementById("juzList");
-
-if(box.dataset.loaded==="yes") return;
-
-box.innerHTML="";
-
-for(let i=1;i<=30;i++){
-
-const card=document.createElement("div");
-
-card.className="list-card";
-
-card.innerHTML=`
-<strong>Juz ${i}</strong>
-<small>الجزء ${i}</small>
-<small>Open Juz →</small>
-`;
-
-card.onclick=()=>openJuz(i);
-
-box.appendChild(card);
-
-}
-
-box.dataset.loaded="yes";
-
-}
-
-
-/* =====================================================
-   OPEN SURAH
-===================================================== */
-
-async function openSurah(
-number,
-englishName,
-arabicName,
-ayahCount
-){
-
-openScreen("reader");
-
-document.getElementById("readerTitle").textContent=
-englishName;
-
-document.getElementById("readerSub").textContent=
-arabicName+" • Surah "+number;
-
-const box=document.getElementById("ayahContainer");
-
-box.innerHTML=
-"<p style='text-align:center'>Loading Surah...</p>";
-
-try{
-
-const res=await fetch(
-`https://api.alquran.cloud/v1/surah/${number}/quran-uthmani`
-);
-
-const data=await res.json();
-
-const ayahs=data.data.ayahs;
-
-box.innerHTML="";
-
-/* FULL SURAH AUDIO */
-
-const audioBox=document.createElement("div");
-
-audioBox.className="ayah";
-
-audioBox.innerHTML=`
-<h3>🎧 Complete Surah Recitation</h3>
-
-<audio class="audio-main" controls>
-<source
-src="https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/${number}.mp3"
-type="audio/mpeg">
-</audio>
-`;
-
-box.appendChild(audioBox);
-
-
-/* AYAH LIST */
-
-ayahs.forEach(ayah=>{
-
-const global=ayah.number;
-
-const item=document.createElement("div");
-
-item.className="ayah";
-
-const done=practiced.includes(global);
-
-item.innerHTML=`
-
-<div class="ayah-number">
-Ayah ${ayah.numberInSurah}
-</div>
-
-<div class="arabic">
-${ayah.text}
-</div>
-
-<div class="ayah-actions">
-
-<button class="action-btn"
-onclick="playAyah(${global})">
-▶ Listen
-</button>
-
-<button
-class="action-btn ${done?'done':''}"
-id="done-${global}"
-onclick="markPracticed(${global},${number},${ayahCount})">
-${done?'✓ Practiced':'✓ Mark Practiced'}
-</button>
-
-</div>
-
-`;
-
-box.appendChild(item);
-
-});
-
-}catch(e){
-
-box.innerHTML=
-"<p style='text-align:center'>Unable to load this Surah.</p>";
-
-}
-
-}
-
-
-/* =====================================================
-   OPEN JUZ
-===================================================== */
-
-async function openJuz(number){
-
-openScreen("reader");
-
-document.getElementById("readerTitle").textContent=
-"Juz "+number;
-
-document.getElementById("readerSub").textContent=
-"الجزء "+number;
-
-const box=document.getElementById("ayahContainer");
-
-box.innerHTML=
-"<p style='text-align:center'>Loading Juz...</p>";
-
-try{
-
-const res=await fetch(
-`https://api.alquran.cloud/v1/juz/${number}/quran-uthmani`
-);
-
-const data=await res.json();
-
-box.innerHTML="";
-
-data.data.ayahs.forEach(ayah=>{
-
-const global=ayah.number;
-
-const item=document.createElement("div");
-
-item.className="ayah";
-
-const done=practiced.includes(global);
-
-item.innerHTML=`
-
-<div class="ayah-number">
-${ayah.surah.name} • Ayah ${ayah.numberInSurah}
-</div>
-
-<div class="arabic">
-${ayah.text}
-</div>
-
-<div class="ayah-actions">
-
-<button class="action-btn"
-onclick="playAyah(${global})">
-▶ Listen
-</button>
-
-<button
-class="action-btn ${done?'done':''}"
-id="done-${global}"
-onclick="markPracticed(${global})">
-${done?'✓ Practiced':'✓ Mark Practiced'}
-</button>
-
-</div>
-
-`;
-
-box.appendChild(item);
-
-});
-
-}catch(e){
-
-box.innerHTML=
-"<p style='text-align:center'>Unable to load this Juz.</p>";
-
-}
-
-}
-
-
-/* =====================================================
-   AYAH AUDIO
-===================================================== */
-
-function playAyah(number){
-
-const audio=new Audio(
-`https://cdn.islamic.network/quran/audio/128/ar.alafasy/${number}.mp3`
-);
-
-audio.play().catch(()=>{
-showToast("Audio could not be played.");
-});
-
-}
-
-
-/* =====================================================
-   MARK PRACTICED
-===================================================== */
-
-function markPracticed(
-number,
-surahNumber=null,
-surahAyahCount=null
-){
-
-if(!practiced.includes(number)){
-
-practiced.push(number);
-
-localStorage.setItem(
-"quranPracticed",
-JSON.stringify(practiced)
-);
-
-updateStreak();
-
-showToast("✓ Ayah practiced!");
-
-}
-
-const btn=document.getElementById("done-"+number);
-
-if(btn){
-
-btn.textContent="✓ Practiced";
-btn.classList.add("done");
-
-}
-
-checkSurahCompletion();
-
-updateProgress();
-
-}
-
-
-/* =====================================================
-   CHECK SURAH COMPLETION
-===================================================== */
-
-async function checkSurahCompletion(){
-
-try{
-
-const res=await fetch(
-"https://api.alquran.cloud/v1/quran/quran-uthmani"
-);
-
-const data=await res.json();
-
-data.data.surahs.forEach(surah=>{
-
-const allDone=surah.ayahs.every(
-ayah=>practiced.includes(ayah.number)
-);
-
-if(allDone){
-
-const id="surah-"+surah.number;
-
-if(!certificates.includes(id)){
-
-certificates.push(id);
-
-showToast(
-"🏆 Certificate unlocked: "+surah.englishName
-);
-
-}
-
-}
-
-});
-
-localStorage.setItem(
-"quranCertificates",
-JSON.stringify(certificates)
-);
-
-}catch(e){}
-
-}
-
-
-/* =====================================================
-   PROGRESS
-===================================================== */
-
-function updateProgress(){
-
-const count=practiced.length;
-
-const percent=
-Math.min(100,(count/TOTAL_AYAHS)*100);
-
-document.getElementById("progressText").textContent=
-`${count} / ${TOTAL_AYAHS} Ayahs`;
-
-document.getElementById("progressFill").style.width=
-percent+"%";
-
-document.getElementById("progressPercent").textContent=
-percent.toFixed(1)+"% completed";
-
-document.getElementById("completedAyahs").textContent=
-count;
-
-document.getElementById("streakNumber").textContent=
-streak;
-
-document.getElementById("certificateCount").textContent=
-certificates.length;
-
-}
-
-
-/* =====================================================
-   STREAK
-===================================================== */
-
-function updateStreak(){
-
-const today=
-new Date().toISOString().slice(0,10);
-
-if(lastPracticeDate===today)return;
-
-if(!lastPracticeDate){
-
-streak=1;
-
-}else{
-
-const old=new Date(lastPracticeDate);
-const now=new Date(today);
-
-const days=
-Math.round((now-old)/(1000*60*60*24));
-
-if(days===1){
-
-streak++;
-
-}else if(days>1){
-
-streak=1;
-
-}
-
-}
-
-lastPracticeDate=today;
-
-localStorage.setItem(
-"quranStreak",
-streak
-);
-
-localStorage.setItem(
-"lastPracticeDate",
-lastPracticeDate
-);
-
-}
-
-
-function updateStreakScreen(){
-
-document.getElementById("streakBig").textContent=
-streak+" Day"+(streak===1?"":"s");
-
-}
-
-
-/* =====================================================
-   CERTIFICATES
-===================================================== */
-
-function updateCertificates(){
-
-const box=
-document.getElementById("certificateList");
-
-if(certificates.length===0){
-
-box.innerHTML=`
-
-<div class="certificate-item locked">
-<span>🔒 No certificates yet</span>
-<span>Keep Learning!</span>
-</div>
-
-`;
-
-return;
-
-}
-
-box.innerHTML="";
-
-certificates.forEach(id=>{
-
-let text=id;
-
-if(id.startsWith("surah-")){
-
-text="Surah "+id.replace("surah-","");
-
-}
-
-const item=document.createElement("div");
-
-item.className="certificate-item";
-
-item.innerHTML=`
-
-<strong>🏆 ${text}</strong>
-
-<span>✓ Completed</span>
-
-`;
-
-box.appendChild(item);
-
-});
-
-}
-
-
-/* =====================================================
-   RECORDING
-===================================================== */
-
-let recorder=null;
-let chunks=[];
-let recording=false;
-
-async function toggleRecording(){
-
-if(recording){
-
-recorder.stop();
-recording=false;
-
-document.getElementById("recordBtn").textContent="🎤";
-
-document.getElementById("practiceStatus").textContent=
-"Recording stopped.";
-
-return;
-
-}
-
-try{
-
-const stream=
-await navigator.mediaDevices.getUserMedia({
-audio:true
-});
-
-chunks=[];
-
-recorder=new MediaRecorder(stream);
-
-recorder.ondataavailable=e=>{
-chunks.push(e.data);
+<section class="panel">
+  <div class="scoreboard">
+    <div><div class="teamname" id="myName">FC Barcelona</div><div class="score" id="myScore">0</div></div>
+    <div class="vs">VS</div>
+    <div><div class="teamname" id="opName">Real Madrid</div><div class="score" id="opScore">0</div></div>
+  </div>
+  <div id="phase">MATCHDAY STADIUM · KICK 1 OF 10</div>
+</section>
+
+<section class="panel">
+  <div id="gamebox">
+    <canvas id="game"></canvas>
+    <div id="loading">
+      <div class="spinner"></div>
+      <div>Loading eFootball™ Engine & Stadium Assets...</div>
+    </div>
+  </div>
+  <div class="hint">🎯 Tap/Click inside the goal frame to aim. Then press TAKE PENALTY.</div>
+</section>
+
+<section class="panel">
+  <div class="player">
+    <div class="shirt">👕</div>
+    <div style="flex:1;min-width:0">
+      <div class="playername" id="playerName">Player 1</div>
+      <div class="small" id="playerTeam">Active Taker</div>
+    </div>
+    <strong id="kickNo" style="color:#00f0ff;font-size:11px">KICK 1</strong>
+  </div>
+  <div class="power">
+    <label for="power">SHOT POWER</label>
+    <input id="power" type="range" min="30" max="100" value="78">
+    <strong id="powerValue" style="color:#00f0ff">78%</strong>
+  </div>
+  <div class="actions">
+    <button class="primary" id="kickBtn">⚽ TAKE PENALTY</button>
+    <button class="secondary" id="resetBtn">↻ NEW MATCH</button>
+  </div>
+  <div id="message">Select target corner and execute your shot!</div>
+</section>
+
+<section class="panel">
+  <h3>📊 Match Analytics</h3>
+  <div class="stats">
+    <div class="stat"><strong id="myGoals">0</strong><small>GOALS SCORED</small></div>
+    <div class="stat"><strong id="opGoals">0</strong><small>OPPONENT GOALS</small></div>
+    <div class="stat"><strong id="saves">0</strong><small>GK SAVES</small></div>
+  </div>
+</section>
+
+<section class="panel">
+  <h3>👥 Squad Penalty Takers</h3>
+  <div id="players"></div>
+  <p class="rules">Standard 10-kick format (5 per side). Tied scores advance to Sudden Death rule until a winner is decided.</p>
+</section>
+</main>
+<footer>eFOOTBALL 27 · MATCHDAY ENGINE</footer>
+
+<script type="module">
+import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.161.0/build/three.module.js';
+
+const $ = id => document.getElementById(id);
+
+const rosters = {
+ "FC Barcelona":["Robert Lewandowski","Lamine Yamal","Raphinha","Pedri","Gavi","Frenkie de Jong","Ferran Torres","Dani Olmo","Ronald Araújo","Jules Koundé"],
+ "Real Madrid":["Kylian Mbappé","Vinícius Júnior","Jude Bellingham","Rodrygo","Federico Valverde","Arda Güler","Eduardo Camavinga","Aurélien Tchouaméni","Antonio Rüdiger","Éder Militão"],
+ "Manchester City":["Erling Haaland","Phil Foden","Kevin De Bruyne","Bernardo Silva","Jérémy Doku","Omar Marmoush","Rayan Cherki","Rodri","Mateo Kovačić","Rúben Dias"],
+ "Liverpool":["Mohamed Salah","Virgil van Dijk","Alexis Mac Allister","Dominik Szoboszlai","Cody Gakpo","Luis Díaz","Darwin Núñez","Ryan Gravenberch","Diogo Jota","Ibrahima Konaté"],
+ "Paris Saint-Germain":["Ousmane Dembélé","Désiré Doué","Khvicha Kvaratskhelia","Bradley Barcola","Achraf Hakimi","Vitinha","João Neves","Fabián Ruiz","Warren Zaïre-Emery","Marquinhos"],
+ "Argentina":["Lionel Messi","Julián Álvarez","Lautaro Martínez","Ángel Di María","Alexis Mac Allister","Enzo Fernández","Rodrigo De Paul","Nicolás González","Nicolás Otamendi","Cristian Romero"],
+ "Brazil":["Neymar","Vinícius Júnior","Raphinha","Rodrygo","Endrick","Bruno Guimarães","Casemiro","Lucas Paquetá","Marquinhos","Éder Militão"],
+ "France":["Kylian Mbappé","Ousmane Dembélé","Michael Olise","Olivier Giroud","Antoine Griezmann","Aurélien Tchouaméni","Eduardo Camavinga","Adrien Rabiot","William Saliba","Jules Koundé"],
+ "Portugal":["Cristiano Ronaldo","Bruno Fernandes","Bernardo Silva","Rafael Leão","Diogo Jota","João Félix","Vitinha","João Neves","Rúben Dias","Nuno Mendes"],
+ "India":["Sunil Chhetri","Gurpreet Singh Sandhu","Brandon Fernandes","Lallianzuala Chhangte","Sahal Abdul Samad","Liston Colaco","Anwar Ali","Sandesh Jhingan","Rahul Bheke","Apuia"]
 };
 
-recorder.onstop=()=>{
-
-const blob=
-new Blob(chunks,{type:"audio/webm"});
-
-const url=
-URL.createObjectURL(blob);
-
-const audio=
-document.getElementById("recordedAudio");
-
-audio.src=url;
-audio.classList.remove("hidden");
-
-stream.getTracks().forEach(
-track=>track.stop()
-);
-
+const colors = {
+ "FC Barcelona":0xa50044,"Real Madrid":0xf0f0f0,
+ "Manchester City":0x6cabdd,"Liverpool":0xc8102e,
+ "Paris Saint-Germain":0x004170,"Argentina":0x75bce8,
+ "Brazil":0xe5d000,"France":0x2045a0,
+ "Portugal":0xd32332,"India":0xff8c27
 };
 
-recorder.start();
+let myScore=0,opScore=0,saves=0,myKicks=0,opKicks=0;
+let suddenDeath=false,finished=false,busy=false;
+let aim={x:0,y:1.5};
+let ball,keeper,player,aimMarker;
+let ballStart,ballEnd,shotStart,shotDuration;
+let shotResult=null;
+let scene,camera,renderer,clock;
 
-recording=true;
+const canvas=$("game");
+const loading=$("loading");
 
-document.getElementById("recordBtn").textContent="⏹️";
-
-document.getElementById("practiceStatus").textContent=
-"🔴 Recording... Recite now.";
-
-}catch(e){
-
-document.getElementById("practiceStatus").textContent=
-"Microphone permission is required.";
-
+function makeMaterial(color,roughness=0.6,metalness=0.15){
+ return new THREE.MeshStandardMaterial({color,roughness,metalness});
 }
 
+function box(parent,w,h,d,material,x,y,z){
+ const mesh=new THREE.Mesh(new THREE.BoxGeometry(w,h,d),material);
+ mesh.position.set(x,y,z);
+ mesh.castShadow=true; mesh.receiveShadow=true;
+ parent.add(mesh);
+ return mesh;
 }
 
-
-/* =====================================================
-   SPEECH RECOGNITION
-===================================================== */
-
-function startSpeechRecognition(){
-
-const SpeechRecognition=
-window.SpeechRecognition ||
-window.webkitSpeechRecognition;
-
-if(!SpeechRecognition){
-
-document.getElementById("speechResult").textContent=
-"Speech recognition is not supported here.";
-
-return;
-
+function sphere(parent,r,material,x,y,z){
+ const mesh=new THREE.Mesh(new THREE.SphereGeometry(r,24,20),material);
+ mesh.position.set(x,y,z);
+ mesh.castShadow=true;
+ parent.add(mesh);
+ return mesh;
 }
 
-const recognition=
-new SpeechRecognition();
-
-recognition.lang="ar-SA";
-recognition.continuous=false;
-recognition.interimResults=false;
-
-document.getElementById("speechResult").textContent=
-"🎧 Listening...";
-
-recognition.start();
-
-recognition.onresult=e=>{
-
-const text=
-e.results[0][0].transcript;
-
-document.getElementById("speechResult").textContent=
-"You said: "+text;
-
-};
-
-recognition.onerror=()=>{
-
-document.getElementById("speechResult").textContent=
-"Could not understand the recitation.";
-
-};
-
+function cylinder(parent,r1,r2,h,material,x,y,z){
+ const mesh=new THREE.Mesh(new THREE.CylinderGeometry(r1,r2,h,20),material);
+ mesh.position.set(x,y,z);
+ mesh.castShadow=true;
+ parent.add(mesh);
+ return mesh;
 }
 
+function createProPlayer(x,y,z,shirtColor,isKeeper=false){
+ const group=new THREE.Group();
+ group.position.set(x,y,z);
+ scene.add(group);
 
-/* =====================================================
-   SETTINGS
-===================================================== */
+ const skin=makeMaterial(0xc9956d,0.8);
+ const shirt=makeMaterial(shirtColor,0.5,0.2);
+ const shorts=makeMaterial(isKeeper?0x112244:0x0d1117,0.7);
+ const socks=makeMaterial(0xf4f4f0,0.9);
+ const boots=makeMaterial(0x111111,0.3,0.6);
 
-function changeFontSize(){
+ sphere(group,0.16,skin,0,1.86,0);
+ sphere(group,0.15,makeMaterial(0x1a0f08,0.9),0,1.93,-0.02);
+ cylinder(group,0.18,0.24,0.6,shirt,0,1.42,0);
+ cylinder(group,0.20,0.21,0.28,shorts,0,0.98,0);
 
-const size=
-document.getElementById("fontSize").value;
+ for(const side of [-1,1]){
+  const leg=cylinder(group,0.065,0.09,0.58,socks,side*0.11,0.64,0);
+  leg.rotation.z=side*0.04;
+  box(group,0.12,0.08,0.26,boots,side*0.11,0.32,-0.05);
 
-document.querySelectorAll(".arabic").forEach(
-x=>x.style.fontSize=size
-);
-
-localStorage.setItem(
-"quranFontSize",
-size
-);
-
-showToast("✓ Font size changed");
-
+  const arm=cylinder(group,0.055,0.075,0.54,shirt,side*0.28,1.46,0);
+  arm.rotation.z=side*0.25;
+  sphere(group,0.068,skin,side*0.34,1.18,0);
+ }
+ return group;
 }
 
+function makeStadium(){
+ scene=new THREE.Scene();
+ scene.background=new THREE.Color(0x020810);
+ scene.fog=new THREE.FogExp2(0x020810,0.015);
 
-/* =====================================================
-   RESET
-===================================================== */
+ camera=new THREE.PerspectiveCamera(45,1,0.1,120);
+ camera.position.set(0,4.0,11.5);
+ camera.lookAt(0,1.5,-8);
 
-function resetProgress(){
+ renderer=new THREE.WebGLRenderer({canvas,antialias:true});
+ renderer.setPixelRatio(Math.min(window.devicePixelRatio||1,2));
+ renderer.shadowMap.enabled=true;
+ renderer.shadowMap.type=THREE.PCFSoftShadowMap;
+ renderer.outputColorSpace=THREE.SRGBColorSpace;
 
-if(!confirm(
-"Are you sure you want to reset all learning progress?"
-))return;
+ scene.add(new THREE.AmbientLight(0xd9f0ff,1.6));
 
-localStorage.removeItem("quranPracticed");
-localStorage.removeItem("quranStreak");
-localStorage.removeItem("lastPracticeDate");
-localStorage.removeItem("quranCertificates");
+ const mainLight=new THREE.DirectionalLight(0xffffff,3.2);
+ mainLight.position.set(-6,24,10);
+ mainLight.castShadow=true;
+ mainLight.shadow.mapSize.width=2048;
+ mainLight.shadow.mapSize.height=2048;
+ mainLight.shadow.camera.near=0.5;
+ mainLight.shadow.camera.far=60;
+ mainLight.shadow.camera.left=-16;
+ mainLight.shadow.camera.right=16;
+ mainLight.shadow.camera.top=16;
+ mainLight.shadow.camera.bottom=-16;
+ scene.add(mainLight);
 
-practiced=[];
-streak=0;
-lastPracticeDate="";
-certificates=[];
+ // Stadium Neon Floodlights
+ const neon1=new THREE.PointLight(0x00f0ff,4,45);
+ neon1.position.set(-14,18,-10);
+ scene.add(neon1);
 
-updateProgress();
-updateCertificates();
-updateStreakScreen();
+ const neon2=new THREE.PointLight(0xff00aa,3,45);
+ neon2.position.set(14,18,-10);
+ scene.add(neon2);
 
-showToast("Progress reset.");
+ // Pitch Grass
+ const pitchMat=makeMaterial(0x125227,0.8);
+ box(scene,40,0.1,55,pitchMat,0,-0.06,-8);
 
+ for(let i=0;i<14;i++){
+  const stripeMat=makeMaterial(i%2?0x155e2d:0x0f4721,0.8);
+  box(scene,40,0.01,3.2,stripeMat,0,0,-31+i*3.5);
+ }
+
+ const lineMat=new THREE.LineBasicMaterial({color:0xffffff,linewidth:2});
+ function drawLine(points){
+  const geo=new THREE.BufferGeometry().setFromPoints(points.map(p=>new THREE.Vector3(...p)));
+  scene.add(new THREE.Line(geo,lineMat));
+ }
+ drawLine([[-9.16,0.02,-12],[9.16,0.02,-12],[9.16,0.02,-4.5],[-9.16,0.02,-4.5],[-9.16,0.02,-12]]);
+ drawLine([[-3.66,0.02,-12],[3.66,0.02,-12],[3.66,0.02,-7.5],[-3.66,0.02,-7.5],[-3.66,0.02,-12]]);
+ drawLine([[0,0.02,1.5],[0,0.02,2.5]]);
+
+ // Stadium Stands & Glowing Spectator LED blocks
+ for(const side of [-1,1]){
+  box(scene,10,7,42,makeMaterial(0x101c2b,0.7),side*20,3.5,-8);
+  for(let row=0;row<6;row++){
+   for(let i=0;i<45;i++){
+    const seatCols=[0x00f0ff,0xff00aa,0xffe600,0x33ff66,0x3366ff];
+    const spectator=sphere(scene,0.08,makeMaterial(seatCols[(i+row)%seatCols.length],0.5,0.5),side*(15+row0.75),1.8+row0.6,-26+i*0.85);
+    spectator.scale.set(1,1.4,1);
+   }
+  }
+ }
+
+ // Goal Frame & High-Definition Netting
+ const postMat=makeMaterial(0xfcfcfc,0.2,0.8);
+ const postR=0.07;
+ cylinder(scene,postR,postR,2.44,postMat,-3.66,1.22,-12);
+ cylinder(scene,postR,postR,2.44,postMat,3.66,1.22,-12);
+ const crossbar=cylinder(scene,postR,postR,7.32,postMat,0,2.44,-12);
+ crossbar.rotation.z=Math.PI/2;
+
+ const netMat=new THREE.MeshStandardMaterial({color:0xe6f0eb,transparent:true,opacity:0.25,side:THREE.DoubleSide});
+ box(scene,7.32,2.44,0.08,netMat,0,1.22,-12.8);
+ for(let x=-3.66;x<=3.66;x+=0.45) drawLine([[x,0.02,-12],[x,2.44,-12]]);
+ for(let y=0.3;y<=2.44;y+=0.35) drawLine([[-3.66,y,-12],[3.66,y,-12]]);
+
+ ball=sphere(scene,0.22,makeMaterial(0xffffff,0.2,0.1),0,0.22,2);
+ ballStart=new THREE.Vector3(0,0.22,2);
+
+ keeper=createProPlayer(0,0,-11.6,0x1b4475,true);
+ player=createProPlayer(0,0,4.3,colors[$("myTeam").value]||0xa50044,false);
+
+ const ringGeo=new THREE.TorusGeometry(0.25,0.035,12,32);
+ aimMarker=new THREE.Mesh(ringGeo,new THREE.MeshBasicMaterial({color:0x00f0ff}));
+ aimMarker.position.set(aim.x,aim.y,-11.85);
+ scene.add(aimMarker);
+
+ resize();
+ window.addEventListener("resize",resize);
+ clock=new THREE.Clock();
+ animate();
 }
 
-
-/* =====================================================
-   TOAST
-===================================================== */
-
-function showToast(message){
-
-const t=document.getElementById("toast");
-
-t.textContent=message;
-t.style.display="block";
-
-setTimeout(()=>{
-t.style.display="none";
-},2500);
-
+function resize(){
+ if(!renderer||!camera)return;
+ const w=canvas.clientWidth||720;
+ const h=canvas.clientHeight||420;
+ renderer.setSize(w,h,false);
+ camera.aspect=w/h;
+ camera.updateProjectionMatrix();
 }
 
+function animate(){
+ requestAnimationFrame(animate);
+ if(!renderer)return;
+ const dt=Math.min(clock.getDelta(),0.04);
 
-/* =====================================================
-   START
-===================================================== */
+ if(busy&&shotStart!==undefined&&shotStart!==null){
+  const elapsed=(performance.now()-shotStart)/shotDuration;
+  const t=Math.min(1,elapsed);
+  const eased=tt(3-2*t);
+  ball.position.lerpVectors(ballStart,ballEnd,eased);
+  ball.position.y+=Math.sin(t*Math.PI)*0.7;
+  ball.rotation.x+=dt*12;
+  ball.rotation.z+=dt*5;
 
-const savedFont=
-localStorage.getItem("quranFontSize");
+  if(shotResult&&shotResult.diveX!==undefined){
+   keeper.position.x=shotResult.diveXMath.min(1,t1.9);
+   keeper.rotation.z=(shotResult.diveX>0?-0.65:0.65)Math.min(1,t1.9);
+  }
 
-if(savedFont){
+  // Camera Shake on strike
+  if(t<0.2){
+   camera.position.x=(Math.random()-0.5)*0.06;
+   camera.position.y=4.0+(Math.random()-0.5)*0.06;
+  }else{
+   camera.position.x=THREE.MathUtils.lerp(camera.position.x,0,0.1);
+   camera.position.y=THREE.MathUtils.lerp(camera.position.y,4.0,0.1);
+  }
 
-document.getElementById("fontSize").value=
-savedFont;
+  if(t>=1){
+   shotStart=null;
+   finishPlayerShot();
+  }
+ }
 
+ renderer.render(scene,camera);
 }
 
-openScreen("home");
+function roster(){ return rosters[$("myTeam").value]; }
+function opponentRoster(){ return rosters[$("opTeam").value]; }
+function currentPlayer(){ return roster()[myKicks%10]; }
 
+function updateUI(){
+ $("myName").textContent=$("myTeam").value;
+ $("opName").textContent=$("opTeam").value;
+ $("myScore").textContent=myScore;
+ $("opScore").textContent=opScore;
+ $("myGoals").textContent=myScore;
+ $("opGoals").textContent=opScore;
+ $("saves").textContent=saves;
+ $("playerName").textContent=finished?"Match complete":currentPlayer();
+ $("playerTeam").textContent=$("myTeam").value+" · Taker";
+ $("kickNo").textContent=suddenDeath?"SUDDEN DEATH":"KICK "+(myKicks+1);
+ $("phase").textContent=finished?"MATCH FINISHED":
+  suddenDeath?"⚡ SUDDEN DEATH":"MATCHDAY STADIUM · KICK "+(myKicks+1)+" OF 10";
+ $("kickBtn").disabled=busy||finished;
+ renderPlayers();
+}
+
+function renderPlayers(){
+ const container=$("players");
+ container.innerHTML="";
+ roster().forEach((name,i)=>{
+  const chip=document.createElement("span");
+  chip.className="chip";
+  chip.textContent=(i+1)+". "+name;
+  if(i<Math.min(myKicks,10))chip.classList.add("done");
+  if(i===myKicks%10&&!finished)chip.classList.add("active");
+  container.appendChild(chip);
+ });
+}
+
+function resetVisuals(){
+ ball.position.copy(ballStart);
+ keeper.position.set(0,0,-11.6);
+ keeper.rotation.set(0,0,0);
+ player.position.set(0,0,4.3);
+ aimMarker.position.set(aim.x,aim.y,-11.85);
+}
+
+function setMessage(text){ $("message").textContent=text; }
+
+function finishMatch(text){
+ finished=true;
+ busy=false;
+ setMessage(text+" Final score: "+myScore+" - "+opScore);
+ updateUI();
+}
+
+function finishPlayerShot(){
+ const result=shotResult;
+ shotResult=null;
+
+ if(result.outside){
+  setMessage("❌ MISS! The curling shot went wide.");
+ }else if(result.saved){
+  saves++;
+  setMessage("🧤 SAVED! Brilliant reflex save by the keeper.");
+ }else{
+  myScore++;
+  setMessage("⚽ GOAL! Exceptional strike into the top corner!");
+ }
+
+ myKicks++;
+ updateUI();
+
+ setTimeout(opponentKick,950);
+}
+
+function opponentKick(){
+ if(finished)return;
+
+ const name=opponentRoster()[opKicks%10];
+ setMessage(name+" is preparing the response shot...");
+
+ const goal=Math.random()<0.74;
+ opKicks++;
+
+ if(goal){
+  opScore++;
+  setMessage("⚽ "+name+" scores for the opponent.");
+ }else{
+  saves++;
+  setMessage("🧤 Brilliant penalty save! Opponent misses.");
+ }
+
+ updateUI();
+
+ if(myKicks===opKicks){
+  if(myKicks>=10){
+   if(myScore!==opScore){
+    finishMatch(myScore>opScore?"🏆 YOU WIN THE SHOOTOUT!":"🏆 OPPONENT WINS MATCHDAY!");
+    return;
+   }
+   suddenDeath=true;
+   setMessage("⚡ SUDDEN DEATH! Sudden breakthrough required.");
+  }else{
+   const myRemaining=10-myKicks;
+   const opRemaining=10-opKicks;
+   if(myScore>opScore+opRemaining){
+    finishMatch("🏆 YOU WIN! Mathematical lead secured.");
+    return;
+   }
+   if(opScore>myScore+myRemaining){
+    finishMatch("🏆 OPPONENT WINS MATCHDAY!");
+    return;
+   }
+  }
+
+  if(suddenDeath&&myKicks>10&&myScore!==opScore){
+   finishMatch(myScore>opScore?"🏆 YOU WIN SUDDEN DEATH!":"🏆 OPPONENT WINS SUDDEN DEATH!");
+   return;
+  }
+ }
+
+ busy=false;
+ updateUI();
+ if(suddenDeath){
+  setMessage("⚡ Sudden Death! Taker: "+currentPlayer());
+ }else{
+  setMessage("Your turn! "+currentPlayer()+" steps up.");
+ }
+}
+
+function takePenalty(){
+ if(busy||finished)return;
+ busy=true;
+ $("kickBtn").disabled=true;
+
+ const power=Number($("power").value);
+ const inside=aim.x>=-3.5&&aim.x<=3.5&&aim.y>=0.1&&aim.y<=2.35;
+ const diveX=(Math.random()*6.0)-3.0;
+ const goalkeeperSaves=Math.random()<0.42;
+ const saved=inside&&goalkeeperSaves&&Math.abs(aim.x-diveX)<1.0;
+
+ ballStart=ball.position.clone();
+ ballEnd=new THREE.Vector3(aim.x,aim.y,-11.9);
+ shotResult={outside:!inside,saved,diveX};
+ shotDuration=920-(power*3.5);
+ shotStart=performance.now();
+
+ aimMarker.position.set(aim.x,aim.y,-11.85);
+ setMessage(currentPlayer()+" takes a fierce shot!");
+}
+
+canvas.addEventListener("pointerdown",event=>{
+ if(busy||finished||!scene)return;
+ const rect=canvas.getBoundingClientRect();
+ const nx=(event.clientX-rect.left)/rect.width;
+ const ny=(event.clientY-rect.top)/rect.height;
+
+ aim.x=THREE.MathUtils.clamp((nx-0.5)*7.2,-3.6,3.6);
+ aim.y=THREE.MathUtils.clamp((1-ny)*3.0,0.15,2.9);
+ aimMarker.position.set(aim.x,aim.y,-11.85);
+});
+
+$("power").addEventListener("input",()=>{
+ $("powerValue").textContent=$("power").value+"%";
+});
+
+function newMatch(){
+ myScore=0;opScore=0;saves=0;
+ myKicks=0;opKicks=0;
+ suddenDeath=false;finished=false;busy=false;
+ aim={x:0,y:1.5};
+ shotStart=null;shotResult=null;
+ resetVisuals();
+ updateUI();
+ setMessage("New Matchday fixture started. Choose your aim.");
+}
+
+$("kickBtn").addEventListener("click",takePenalty);
+$("resetBtn").addEventListener("click",newMatch);
+
+$("myTeam").addEventListener("change",()=>{
+ if($("myTeam").value===$("opTeam").value){
+  $("opTeam").selectedIndex=($("myTeam").selectedIndex+1)%$("opTeam").options.length;
+ }
+ if(player){
+  scene.remove(player);
+  player=createProPlayer(0,0,4.3,colors[$("myTeam").value]||0xa50044,false);
+ }
+ newMatch();
+});
+
+$("opTeam").addEventListener("change",()=>{
+ if($("myTeam").value===$("opTeam").value){
+  $("opTeam").selectedIndex=($("myTeam").selectedIndex+1)%$("opTeam").options.length;
+ }
+ newMatch();
+});
+
+try{
+ makeStadium();
+ updateUI();
+ loading.style.display="none";
+}catch(error){
+ console.error(error);
+ loading.style.pointerEvents="auto";
+ loading.innerHTML="3D engine failed to start.<br>Please refresh.";
+ setMessage("Failed to load eFootball graphics.");
+}
 </script>
-
 </body>
 </html>
